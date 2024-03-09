@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.0-SNAPSHOT'
+	id 'org.springframework.boot' version '3.2.2'
 	id 'io.spring.dependency-management' version '1.1.4'
 }
 
@@ -11,23 +11,37 @@ java {
 	sourceCompatibility = '21'
 }
 
+tasks.withType(JavaCompile) {
+	options.compilerArgs += "--enable-preview"
+}
+
+tasks.withType(Test) {
+	jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec) {
+	jvmArgs += '--enable-preview'
+}
+
+
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
+	implementation 'de.codecentric:spring-boot-admin-client'
+	implementation 'de.codecentric:spring-boot-admin-starter-client:3.2.2'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	// https://mvnrepository.com/artifact/org.springframework/spring-web
 	implementation 'org.springframework:spring-web:6.1.4'
 	implementation 'org.springframework.boot:spring-boot-starter-web:3.2.3'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// https://mvnrepository.com/artifact/org.jolokia/jolokia-client-java
+	implementation 'org.jolokia:jolokia-client-java:2.0.2'
+	// https://mvnrepository.com/artifact/org.jolokia/jolokia-example-spring-boot
+	implementation 'org.jolokia:jolokia-example-spring-boot:2.0.2'
 
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
