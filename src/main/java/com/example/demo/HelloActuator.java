@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import static java.lang.StringTemplate.STR;
 
 @Component
-@Endpoint(id="coolname")
+@Endpoint(id="jmxActuator")
 public class HelloActuator {
 
     @ReadOperation

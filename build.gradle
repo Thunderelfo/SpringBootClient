@@ -29,6 +29,9 @@ repositories {
 }
 
 dependencies {
+	compileOnly "org.glassfish.jaxb:jaxb-runtime:4.0.4"
+
+
 	implementation 'de.codecentric:spring-boot-admin-client'
 	implementation 'de.codecentric:spring-boot-admin-starter-client:3.2.2'
 	implementation 'org.springframework.boot:spring-boot-starter'
@@ -38,7 +41,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.2.2'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// https://mvnrepository.com/artifact/org.jolokia/jolokia-client-java
-	implementation 'org.jolokia:jolokia-client-java:2.0.2'
+	implementation 'org.jolokia:jolokia-support-spring:2.0.2'
 	// https://mvnrepository.com/artifact/org.jolokia/jolokia-example-spring-boot
 	implementation 'org.jolokia:jolokia-example-spring-boot:2.0.2'
 
